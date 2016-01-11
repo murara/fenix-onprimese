@@ -13,6 +13,10 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-install pdo_mysql \
     && docker-php-ext-install mysqli \
     && docker-php-ext-install soap \
+    && a2enmod rewrite \
+    && a2enmod cache \
+    && a2enmod cache_disk \
+    && a2enmod expires \
     && rm -rf /var/lib/apt/lists/*
 
 COPY config/php.ini /usr/local/etc/php/
